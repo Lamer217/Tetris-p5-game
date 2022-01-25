@@ -58,9 +58,9 @@ class Game {
         false;
       } else {
         this.blockX += this.blockSide;
-        /* ❓ blockShapeL will have to be changed to some kind of argument that's going to address
+        /* ✅ Solved: blockShapeL will have to be changed to some kind of argument that's going to address
         the array with currently used figure's blocks */
-        shapes.shapesArr[4].forEach((block) => {
+        shapes.shapesArr[currentIndex].forEach((block) => {
           block.x += this.blockSide;
         });
       }
@@ -76,9 +76,9 @@ class Game {
         false;
       } else {
         this.blockX -= this.blockSide;
-        /* ❓ blockShapeL will have to be changed to some kind of argument that's going to address
+        /* ✅ Solved: blockShapeL will have to be changed to some kind of argument that's going to address
         the array with currently used figure's blocks */
-        shapes.shapesArr[4].forEach((block) => {
+        shapes.shapesArr[currentIndex].forEach((block) => {
           block.x -= this.blockSide;
         });
       }
@@ -91,18 +91,13 @@ class Game {
         false;
       } else {
         this.blockY += this.blockSide;
-        /* ❓ blockShapeL will have to be changed to some kind of argument that's going to address
+        /* ✅ Solved: blockShapeL will have to be changed to some kind of argument that's going to address
         the array with currently used figure's blocks */
-        shapes.shapesArr[4].forEach((block) => {
+        shapes.shapesArr[currentIndex].forEach((block) => {
           block.y += this.blockSide;
         });
       }
     }
-  }
-  renderBlockShapeL() {
-    shapes.shapesArr[0].forEach((block) => {
-      image(this.blockImage, block.x, block.y, this.blockSide, this.blockSide);
-    });
   }
 }
 
