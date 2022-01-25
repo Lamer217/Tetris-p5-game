@@ -26,6 +26,8 @@ class Shapes {
         {
           x: game.blockX + game.blockSide * 3,
           y: game.blockY,
+          rightmostMultiplier: 5,
+          downmostMultiplier: 0,
         },
         {
           x: game.blockX + game.blockSide * 3,
@@ -46,6 +48,8 @@ class Shapes {
         {
           x: game.blockX + game.blockSide * 2,
           y: game.blockY,
+          rightmostMultiplier: 5,
+          downmostMultiplier: 0,
         },
         {
           x: game.blockX + game.blockSide * 3,
@@ -57,14 +61,24 @@ class Shapes {
         { x: game.blockX, y: game.blockY },
         { x: game.blockX + game.blockSide, y: game.blockY },
         { x: game.blockX + game.blockSide * 2, y: game.blockY },
-        { x: game.blockX + game.blockSide * 3, y: game.blockY },
+        {
+          x: game.blockX + game.blockSide * 3,
+          y: game.blockY,
+          rightmostMultiplier: 5,
+          downmostMultiplier: 0,
+        },
       ],
       [
         //   Vertical I shaped blocks
         { x: game.blockX, y: game.blockY },
         { x: game.blockX, y: game.blockY + game.blockSide },
         { x: game.blockX, y: game.blockY + game.blockSide * 2 },
-        { x: game.blockX, y: game.blockY + game.blockSide * 3 },
+        {
+          x: game.blockX,
+          y: game.blockY + game.blockSide * 3,
+          rightmostMultiplier: 2,
+          downmostMultiplier: 3,
+        },
       ],
       [
         // O shaped blocks
@@ -74,6 +88,8 @@ class Shapes {
         {
           x: game.blockX + game.blockSide * 1,
           y: game.blockY + game.blockSide * 1,
+          rightmostMultiplier: 3,
+          downmostMultiplier: 1,
         },
       ],
       [
@@ -81,7 +97,12 @@ class Shapes {
         { x: game.blockX, y: game.blockY + game.blockSide },
         { x: game.blockX + game.blockSide, y: game.blockY + game.blockSide },
         { x: game.blockX + game.blockSide, y: game.blockY },
-        { x: game.blockX + game.blockSide * 2, y: game.blockY },
+        {
+          x: game.blockX + game.blockSide * 2,
+          y: game.blockY,
+          rightmostMultiplier: 4,
+          downmostMultiplier: 1,
+        },
       ],
       [
         //   Z shaped blocks
@@ -91,6 +112,8 @@ class Shapes {
         {
           x: game.blockX + game.blockSide * 2,
           y: game.blockY + game.blockSide,
+          rightmostMultiplier: 4,
+          downmostMultiplier: 1,
         },
       ],
       [
@@ -101,6 +124,8 @@ class Shapes {
         {
           x: game.blockX + game.blockSide * 2,
           y: game.blockY + game.blockSide,
+          rightmostMultiplier: 4,
+          downmostMultiplier: 1,
         },
       ],
     ];

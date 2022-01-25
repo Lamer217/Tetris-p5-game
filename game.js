@@ -49,16 +49,18 @@ class Game {
   moveRight() {
     if (keyCode === RIGHT_ARROW) {
       if (
-        this.blockX + this.blockSide * 3 >= this.blockSide * 9.5 ||
-        this.blockY >=
-          height -
-            this.blockSide *
-              3 /* Change 3 according to the current shape width */
+        this.blockX +
+          this.blockSide *
+            shapes.shapesArr[currentIndex][3].rightmostMultiplier >=
+        width - this.blockSide
+        /* ✅ Change multiplier according to the current shape width
+              Create a parameter in every shape's object that will store
+              a rightmost multiplyer that will be passed here */
       ) {
         false;
       } else {
         this.blockX += this.blockSide;
-        /* ✅ Solved: blockShapeL will have to be changed to some kind of argument that's going to address
+        /* ✅ Solved: ⬇⬇⬇ will have to be changed to some kind of argument that's going to address
         the array with currently used figure's blocks */
         shapes.shapesArr[currentIndex].forEach((block) => {
           block.x += this.blockSide;
@@ -69,14 +71,11 @@ class Game {
 
   moveLeft() {
     if (keyCode === LEFT_ARROW) {
-      if (
-        this.blockX <= this.blockSide ||
-        this.blockY >= height - this.blockSide * 3
-      ) {
+      if (this.blockX <= this.blockSide) {
         false;
       } else {
         this.blockX -= this.blockSide;
-        /* ✅ Solved: blockShapeL will have to be changed to some kind of argument that's going to address
+        /* ✅ Solved: ⬇⬇⬇ will have to be changed to some kind of argument that's going to address
         the array with currently used figure's blocks */
         shapes.shapesArr[currentIndex].forEach((block) => {
           block.x -= this.blockSide;
@@ -87,11 +86,16 @@ class Game {
 
   moveDown() {
     if (keyCode === DOWN_ARROW) {
-      if (this.blockY >= height - 3 * this.blockSide) {
+      if (
+        this.blockY +
+          this.blockSide *
+            shapes.shapesArr[currentIndex][3].downmostMultiplier >=
+        height - 3 * this.blockSide
+      ) {
         false;
       } else {
         this.blockY += this.blockSide;
-        /* ✅ Solved: blockShapeL will have to be changed to some kind of argument that's going to address
+        /* ✅ Solved: ⬇⬇⬇ will have to be changed to some kind of argument that's going to address
         the array with currently used figure's blocks */
         shapes.shapesArr[currentIndex].forEach((block) => {
           block.y += this.blockSide;
