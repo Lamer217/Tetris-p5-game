@@ -33,7 +33,9 @@ class Game {
           width - this.blockSide ||
         /* ✅ Change multiplier according to the current shape width
               Create a parameter in every shape's object that will store
-              a rightmost multiplyer that will be passed here */ this.blockY +
+              a rightmost multiplyer that will be passed here */
+        // ⬇Hits bottom
+        this.blockY +
           this.blockSide *
             shapes.shapesArr[currentIndex][3].downmostMultiplier >=
           height - this.blockSide * 3
@@ -55,6 +57,7 @@ class Game {
     if (keyCode === LEFT_ARROW) {
       if (
         this.blockX <= this.blockSide ||
+        // ⬇Hits bottom
         this.blockY +
           this.blockSide *
             shapes.shapesArr[currentIndex][3].downmostMultiplier >=

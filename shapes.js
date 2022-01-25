@@ -7,6 +7,11 @@ class Shapes {
   randomShape() {
     return Math.floor(Math.random() * this.shapesArr.length);
   }
+  renderStoredBlocks() {
+    this.storedBlocks.forEach((block) => {
+      image(game.blockImage, block.x, block.y, game.blockSide, game.blockSide);
+    });
+  }
   constructor() {
     this.shapesArr = [
       [
@@ -129,5 +134,6 @@ class Shapes {
         },
       ],
     ];
+    this.storedBlocks = [];
   }
 }
