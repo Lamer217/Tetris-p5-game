@@ -1,4 +1,6 @@
 const game = new Game();
+const shapes = new Shapes();
+const currentIndex = shapes.randomShape();
 
 function preload() {
   game.preload();
