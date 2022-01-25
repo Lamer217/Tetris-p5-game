@@ -1,32 +1,10 @@
 class Game {
   constructor() {
     this.blockSide = 33.4;
-    this.blockX = 33.4;
+    this.blockX = this.blockSide * 4;
     this.blockY = 33.4;
     // ⬇ To be used later to represent a figure that's currently active
     // this.currentShapeIndex = shapes.randomShape();
-    this.blockShapeL = [
-      {
-        x: this.blockX,
-        y: this.blockY,
-      },
-      {
-        x: this.blockX + this.blockSide,
-        y: this.blockY,
-      },
-      {
-        x: this.blockX + this.blockSide * 2,
-        y: this.blockY,
-      },
-      {
-        x: this.blockX + this.blockSide * 3,
-        y: this.blockY,
-      },
-      {
-        x: this.blockX + this.blockSide * 3,
-        y: this.blockY - this.blockSide,
-      },
-    ];
   }
 
   setup() {}
@@ -52,10 +30,13 @@ class Game {
         this.blockX +
           this.blockSide *
             shapes.shapesArr[currentIndex][3].rightmostMultiplier >=
-        width - this.blockSide
+          width - this.blockSide ||
         /* ✅ Change multiplier according to the current shape width
               Create a parameter in every shape's object that will store
-              a rightmost multiplyer that will be passed here */
+              a rightmost multiplyer that will be passed here */ this.blockY +
+          this.blockSide *
+            shapes.shapesArr[currentIndex][3].downmostMultiplier >=
+          height - this.blockSide * 3
       ) {
         false;
       } else {
@@ -70,8 +51,15 @@ class Game {
   }
 
   moveLeft() {
+    console.log(height);
     if (keyCode === LEFT_ARROW) {
-      if (this.blockX <= this.blockSide) {
+      if (
+        this.blockX <= this.blockSide ||
+        this.blockY +
+          this.blockSide *
+            shapes.shapesArr[currentIndex][3].downmostMultiplier >=
+          height - this.blockSide * 3
+      ) {
         false;
       } else {
         this.blockX -= this.blockSide;
@@ -104,12 +92,3 @@ class Game {
     }
   }
 }
-
-// Current issues:
-/* ✅ LShapedBlock doesn't move. It moves only if all the block are entered into the draw function. 
-⬆ Solution: in a move method have to loop inside the lShapeArray and change it's x & y value
-✅ If done as above, blocks don't collide with the borders, 
-because the conditional checks for blockX and blockY values
-⬆ Solution: Added a loop to the conditional that goes through every figure's block
- and changes its' x & y values.
-✅ More bugs to come...*/
