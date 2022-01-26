@@ -18,3 +18,5 @@ function keyPressed() {
   game.moveLeft();
   game.moveDown();
 }
+
+game.randomShape();

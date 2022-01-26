@@ -6,7 +6,7 @@ class Game {
       1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       2: [0, , 0, 0, 0, 0, 0, 0, 0, 0],
       3: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      4: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+      4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       5: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       6: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       7: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -117,5 +117,10 @@ class Game {
         }
       }
     }
+  }
+  randomShape() {
+    const randomFigure = Math.ceil(Math.random() * 8);
+    const randomTile = Math.floor(Math.random() * (7 - 2) + 2);
+    this.board["1"].splice(randomTile, 1, randomFigure);
   }
 }
