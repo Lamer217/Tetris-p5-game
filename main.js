@@ -15,4 +15,5 @@ function draw() {
 
 function keyPressed() {
   game.moveRight();
+  game.moveLeft();
 }
