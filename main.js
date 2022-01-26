@@ -12,8 +12,4 @@ function draw() {
   game.draw();
 }
 
-function keyPressed() {
-  game.moveRight();
-  game.moveLeft();
-  game.moveDown();
-}
+function keyPressed() {}

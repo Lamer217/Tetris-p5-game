@@ -3,43 +3,28 @@ class Game {
     this.blockSide = 33.4;
     this.blockX = 33.4;
     this.blockY = 33.4;
-    this.blockShapeL = [
-      {
-        image: this.blockImage,
-        x: this.blockX,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide * 2,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide * 3,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide * 3,
-        y: this.blockY - this.blockSide,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-    ];
+    this.board = {
+      1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      2: [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+      3: [0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+      4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      5: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      6: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      7: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      8: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      9: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      10: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      11: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      12: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      13: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      14: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      15: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      16: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      17: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      18: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      19: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      20: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    };
   }
 
   setup() {}
@@ -47,45 +32,6 @@ class Game {
   preload() {
     this.backgroundImage = loadImage("assets/Board/Board.png");
     this.blockImage = loadImage("assets/Single Blocks/Blue.png");
-    /* // The L shape doesn't work
-    // Maybe that's cause only loadImage is supposed to be in the preload and not all the other coordinates
-    this.blockShapeL = [
-      {
-        image: this.blockImage,
-        x: this.blockX,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide * 2,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide * 3,
-        y: this.blockY,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-      {
-        image: this.blockImage,
-        x: this.blockX + this.blockSide * 3,
-        y: this.blockY - this.blockSide,
-        blockWidth: this.blockSide,
-        blockHeight: this.blockSide,
-      },
-    ]; */
   }
 
   draw() {
@@ -93,66 +39,26 @@ class Game {
     image(this.backgroundImage, 0, 0, width, height);
     image(
       this.blockImage,
-      this.blockX,
-      this.blockY + this.blockSide,
+      this.blockSide * 6,
+      this.blockSide * 3,
       this.blockSide,
       this.blockSide
     );
-    // console.log("this is the background");
-    this.renderLShapedBlock();
-    // console.log(game.blockX, game.blockY);
+    this.renderBlock();
   }
-
-  moveRight() {
-    if (keyCode === RIGHT_ARROW) {
-      if (
-        this.blockX >= this.blockSide * 9.5 ||
-        this.blockY >= height - this.blockSide * 3
-      ) {
-        false;
-      } else {
-        this.blockX += this.blockSide;
-      }
+  renderBlock() {
+    for (const row in this.board) {
+      this.board[row].forEach((cell, index) => {
+        if (cell === 1) {
+          image(
+            this.blockImage,
+            ++index * this.blockSide,
+            parseInt(row) * this.blockSide,
+            this.blockSide,
+            this.blockSide
+          );
+        }
+      });
     }
-  }
-
-  moveLeft() {
-    if (keyCode === LEFT_ARROW) {
-      if (
-        this.blockX <= this.blockSide ||
-        this.blockY >= height - this.blockSide * 3
-      ) {
-        false;
-      } else {
-        this.blockX -= this.blockSide;
-      }
-    }
-  }
-
-  moveDown() {
-    if (keyCode === DOWN_ARROW) {
-      if (this.blockY >= height - 3 * this.blockSide) {
-        false;
-      } else {
-        this.blockY += this.blockSide;
-      }
-    }
-  }
-  renderLShapedBlock() {
-    this.blockShapeL.forEach((block) => {
-      image(
-        this.blockImage,
-        block.x,
-        block.y,
-        block.blockWidth,
-        block.blockHeight
-      );
-    });
   }
 }
-
-// Current issues:
-/* ❌LShapedBlock doesn't move. It moves only if all the block are entered into the draw function. 
-❌ If done as above, blocks don't collide with the borders, 
-because the conditional checks for blockX and blockY values
-✅ More bugs to come...*/
