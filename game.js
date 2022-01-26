@@ -96,5 +96,18 @@ class Game {
       }
     }
   }
-  moveDown() {}
+  moveDown() {
+    if (keyCode === DOWN_ARROW) {
+      for (let i = 1; i < 21; i++) {
+        // console.log(this.board[i]);
+        for (let j = 0; j < this.board[i].length; j++) {
+          if (this.board[i][j] === 1) {
+            this.board[i + 1][j] = 1;
+            this.board[i][j] = 0;
+            return true;
+          }
+        }
+      }
+    }
+  }
 }
