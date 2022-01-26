@@ -1,4 +1,5 @@
 const game = new Game();
+const shapes = new Shapes();
 
 function preload() {
   game.preload();
@@ -12,4 +13,6 @@ function draw() {
   game.draw();
 }
 
-function keyPressed() {}
+function keyPressed() {
+  game.moveRight();
+}
