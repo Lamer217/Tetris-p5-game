@@ -1,4 +1,7 @@
 class Shapes {
+  constructor() {
+    this.shapesWidth = [0, 4, 4, 3, 4, 2, 1, 3, 1];
+  }
   renderL(index, row) {
     image(
       game.blockImage,

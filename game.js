@@ -1,11 +1,12 @@
 class Game {
   constructor() {
     this.blockSide = 33.4;
+    this.currentFigure = 0;
     this.board = {
       1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      2: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+      2: [0, , 0, 0, 0, 0, 0, 0, 0, 0],
       3: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      4: [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
       5: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       6: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       7: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -35,34 +36,42 @@ class Game {
   draw() {
     clear();
     image(this.backgroundImage, 0, 0, width, height);
-    this.renderBlock();
+    this.renderBlocks();
   }
-  renderBlock() {
+  renderBlocks() {
     for (const row in this.board) {
       this.board[row].forEach((cell, index) => {
         if (cell === 1) {
           shapes.renderL(index, row);
+          this.currentFigure = 1;
         }
         if (cell === 2) {
           shapes.renderJ(index, row);
+          this.currentFigure = 2;
         }
         if (cell === 3) {
           shapes.renderInvT(index, row);
+          this.currentFigure = 3;
         }
         if (cell === 4) {
           shapes.renderHI(index, row);
+          this.currentFigure = 4;
         }
         if (cell === 5) {
           shapes.renderO(index, row);
+          this.currentFigure = 5;
         }
         if (cell === 6) {
           shapes.renderVI(index, row);
+          this.currentFigure = 6;
         }
         if (cell === 7) {
           shapes.renderS(index, row);
+          this.currentFigure = 7;
         }
         if (cell === 8) {
           shapes.renderZ(index, row);
+          this.currentFigure = 8;
         }
       });
     }
@@ -71,10 +80,10 @@ class Game {
     if (keyCode === RIGHT_ARROW) {
       for (const row in this.board) {
         // Later change 6 to be adaptive value of current figures width
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 10 - shapes.shapesWidth[this.currentFigure]; i++) {
           // later change if statement to only accept currently moved element
-          if (this.board[row][i] === 1) {
-            this.board[row][i + 1] = 1;
+          if (this.board[row][i] > 0) {
+            this.board[row][i + 1] = this.board[row][i];
             this.board[row][i] = 0;
             return true;
           }
@@ -86,10 +95,9 @@ class Game {
     if (keyCode === LEFT_ARROW) {
       for (const row in this.board) {
         for (let i = 0; i < this.board[row].length; i++) {
-          if (this.board[row][i] === 1 && i - 1 > -1) {
-            this.board[row][i - 1] = 1;
+          if (this.board[row][i] > 0 && i - 1 > -1) {
+            this.board[row][i - 1] = this.board[row][i];
             this.board[row][i] = 0;
-            console.log(this.board[row]);
             return true;
           }
         }
@@ -101,8 +109,8 @@ class Game {
       for (let i = 1; i < 21; i++) {
         // console.log(this.board[i]);
         for (let j = 0; j < this.board[i].length; j++) {
-          if (this.board[i][j] === 1) {
-            this.board[i + 1][j] = 1;
+          if (this.board[i][j] > 0) {
+            this.board[i + 1][j] = this.board[i][j];
             this.board[i][j] = 0;
             return true;
           }
