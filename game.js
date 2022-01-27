@@ -87,12 +87,68 @@ class Game {
   }
   moveRight() {
     if (keyCode === RIGHT_ARROW) {
-      for (const row in this.board) {
-        for (let i = 0; i < 10 - shapes.shapesWidth[this.currentFigure]; i++) {
-          // later change if statement to only accept currently moved element
-          if (this.board[row][i] > 0) {
-            this.board[row][i + 1] = this.board[row][i];
-            this.board[row][i] = 0;
+      for (let i = 1; i <= 20; i++) {
+        for (let j = 0; j < 10 - shapes.shapesWidth[this.currentFigure]; j++) {
+          if (
+            this.currentFigure === 1 &&
+            this.board[i][j] === this.currentFigure &&
+            i > 1 &&
+            (this.board[i][j + 4] !== 0 || this.board[i - 1][j + 4] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 2 &&
+            this.board[i][j] === this.currentFigure &&
+            this.board[i][j + 4] !== 0
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 3 &&
+            this.board[i][j] === this.currentFigure &&
+            i > 1 &&
+            (this.board[i][j + 3] !== 0 || this.board[i - 1][j + 2] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 4 &&
+            this.board[i][j] === this.currentFigure &&
+            this.board[i][j + 4] !== 0
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 5 &&
+            this.board[i][j] === this.currentFigure &&
+            i > 1 &&
+            (this.board[i][j + 2] !== 0 || this.board[i - 1][j + 2] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 6 &&
+            this.board[i][j] === this.currentFigure &&
+            i > 3 &&
+            (this.board[i][j + 1] !== 0 ||
+              this.board[i - 1][j + 1] !== 0 ||
+              this.board[i - 2][j + 1] !== 0 ||
+              this.board[i - 3][j + 1] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 7 &&
+            this.board[i][j] === this.currentFigure &&
+            i > 1 &&
+            (this.board[i][j + 2] !== 0 || this.board[i - 1][j + 3] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 8 &&
+            this.board[i][j] === this.currentFigure &&
+            i > 1 &&
+            (this.board[i][j + 1] !== 0 || this.board[i - 1][j] !== 0)
+          ) {
+            return false;
+          } else if (this.board[i][j] > 0) {
+            this.board[i][j + 1] = this.board[i][j];
+            this.board[i][j] = 0;
             return true;
           }
         }
@@ -106,30 +162,35 @@ class Game {
           if (
             this.currentFigure === 1 &&
             this.board[i][j] === this.currentFigure &&
+            i > 1 &&
             (this.board[i][j - 1] !== 0 || this.board[i - 1][j + 2] !== 0)
           ) {
             return false;
           } else if (
             this.currentFigure === 2 &&
             this.board[i][j] === this.currentFigure &&
+            i > 1 &&
             (this.board[i][j - 1] !== 0 || this.board[i - 1][j - 1] !== 0)
           ) {
             return false;
           } else if (
             this.currentFigure === 3 &&
             this.board[i][j] === this.currentFigure &&
+            i > 1 &&
             (this.board[i][j - 1] !== 0 || this.board[i - 1][j] !== 0)
           ) {
             return false;
           } else if (
             this.currentFigure === 5 &&
             this.board[i][j] === this.currentFigure &&
+            i > 1 &&
             (this.board[i][j - 1] !== 0 || this.board[i - 1][j - 1] !== 0)
           ) {
             return false;
           } else if (
             this.currentFigure === 6 &&
             this.board[i][j] === this.currentFigure &&
+            i > 3 &&
             (this.board[i][j - 1] !== 0 ||
               this.board[i - 1][j - 1] !== 0 ||
               this.board[i - 2][j - 1] !== 0 ||
@@ -139,12 +200,14 @@ class Game {
           } else if (
             this.currentFigure === 7 &&
             this.board[i][j] === this.currentFigure &&
+            i > 1 &&
             (this.board[i][j - 1] !== 0 || this.board[i - 1][j] !== 0)
           ) {
             return false;
           } else if (
             this.currentFigure === 8 &&
             this.board[i][j] === this.currentFigure &&
+            i > 1 &&
             (this.board[i][j - 2] !== 0 || this.board[i - 1][j - 3] !== 0)
           ) {
             return false;
