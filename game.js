@@ -73,6 +73,15 @@ class Game {
           shapes.renderZ(index, row);
           this.currentFigure = 8;
         }
+        if (cell === 'x') {
+          image(
+            this.blockImage,
+            (index + 1) * this.blockSide,
+            parseInt(row) * game.blockSide,
+            game.blockSide,
+            game.blockSide
+          );
+        }
       });
     }
   }
