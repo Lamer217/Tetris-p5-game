@@ -6,7 +6,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(401, 735);
+  game.setup();
 }
 
 function draw() {
@@ -35,6 +35,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.lToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       }
@@ -50,6 +51,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.jToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       }
@@ -64,6 +66,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.invTToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       }
@@ -79,6 +82,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.hIToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       }
@@ -92,6 +96,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.oToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       }
@@ -103,6 +108,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.vIToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       }
@@ -117,6 +123,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.sToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       }
@@ -131,6 +138,7 @@ setInterval(() => {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         shapes.zToX(i, j);
+        game.removeRow();
         game.randomShape();
         return true;
       } else if (game.board[i][j] > 0) {
@@ -140,4 +148,4 @@ setInterval(() => {
       }
     }
   }
-}, 1500);
+}, 1300);

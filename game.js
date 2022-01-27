@@ -26,7 +26,9 @@ class Game {
     };
   }
 
-  setup() {}
+  setup() {
+    createCanvas(401, 735);
+  }
 
   preload() {
     this.backgroundImage = loadImage('assets/Board/Board.png');
@@ -236,6 +238,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.lToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           }
@@ -251,6 +254,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.jToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           }
@@ -265,6 +269,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.invTToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           }
@@ -280,6 +285,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.hIToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           }
@@ -293,6 +299,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.oToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           }
@@ -304,6 +311,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.vIToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           }
@@ -318,6 +326,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.sToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           }
@@ -332,6 +341,7 @@ class Game {
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
             shapes.zToX(i, j);
+            this.removeRow();
             this.randomShape();
             return true;
           } else if (this.board[i][j] > 0) {
@@ -349,5 +359,22 @@ class Game {
     setTimeout(() => {
       this.board['1'].splice(randomTile, 1, randomFigure);
     }, 600);
+  }
+  /* rowIsComplete() {
+    for (let i = 1; i <= 20; i++) {
+      if (this.board[i].every((cell) => cell === 'x')) {
+        return true;
+      }
+    }
+  } */
+  removeRow() {
+    for (let i = 1; i <= 20; i++) {
+      if (this.board[i].every((cell) => cell === 'x')) {
+        for (let j = i; j > 1; j--) {
+          this.board[j] = this.board[j - 1];
+        }
+        this.board['1'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+    }
   }
 }
