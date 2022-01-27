@@ -116,7 +116,10 @@ class Game {
     if (keyCode === DOWN_ARROW) {
       for (let i = 1; i <= 20; i++) {
         for (let j = 0; j < this.board[i].length; j++) {
-          if (this.board[i][j] > 0 && i >= 19) {
+          if (
+            (this.board[i][j] > 0 && i >= 19) ||
+            (this.board[i][j] > 0 && this.board[i + 2][j] === 'x')
+          ) {
             /* ⬆This is a condition to turn to x when at the bottom */
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
