@@ -103,7 +103,52 @@ class Game {
     if (keyCode === LEFT_ARROW) {
       for (let i = 1; i <= 20; i++) {
         for (let j = 0; j < this.board[i].length; j++) {
-          if (this.board[i][j] > 0 && j - 1 > -1) {
+          if (
+            this.currentFigure === 1 &&
+            this.board[i][j] === this.currentFigure &&
+            (this.board[i][j - 1] !== 0 || this.board[i - 1][j + 2] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 2 &&
+            this.board[i][j] === this.currentFigure &&
+            (this.board[i][j - 1] !== 0 || this.board[i - 1][j - 1] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 3 &&
+            this.board[i][j] === this.currentFigure &&
+            (this.board[i][j - 1] !== 0 || this.board[i - 1][j] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 5 &&
+            this.board[i][j] === this.currentFigure &&
+            (this.board[i][j - 1] !== 0 || this.board[i - 1][j - 1] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 6 &&
+            this.board[i][j] === this.currentFigure &&
+            (this.board[i][j - 1] !== 0 ||
+              this.board[i - 1][j - 1] !== 0 ||
+              this.board[i - 2][j - 1] !== 0 ||
+              this.board[i - 3][j - 1] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 7 &&
+            this.board[i][j] === this.currentFigure &&
+            (this.board[i][j - 1] !== 0 || this.board[i - 1][j] !== 0)
+          ) {
+            return false;
+          } else if (
+            this.currentFigure === 8 &&
+            this.board[i][j] === this.currentFigure &&
+            (this.board[i][j - 2] !== 0 || this.board[i - 1][j - 3] !== 0)
+          ) {
+            return false;
+          } else if (this.board[i][j] > 0 && j - 1 > -1) {
             this.board[i][j - 1] = this.board[i][j];
             this.board[i][j] = 0;
             return true;
