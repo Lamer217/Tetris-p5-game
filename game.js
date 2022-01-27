@@ -79,7 +79,6 @@ class Game {
   moveRight() {
     if (keyCode === RIGHT_ARROW) {
       for (const row in this.board) {
-        // Later change 6 to be adaptive value of current figures width
         for (let i = 0; i < 10 - shapes.shapesWidth[this.currentFigure]; i++) {
           // later change if statement to only accept currently moved element
           if (this.board[row][i] > 0) {
@@ -106,9 +105,15 @@ class Game {
   }
   moveDown() {
     if (keyCode === DOWN_ARROW) {
-      for (let i = 1; i < 21; i++) {
+      for (let i = 1; i <= 20; i++) {
         for (let j = 0; j < this.board[i].length; j++) {
-          if (this.board[i][j] > 0) {
+          if (this.board[i][j] > 0 && i >= 19) {
+            /* ⬆This is a condition to turn to x when at the bottom */
+            this.board[i + 1][j] = "x";
+            this.board[i][j] = 0;
+            console.log(this.board);
+            return true;
+          } else if (this.board[i][j] > 0) {
             this.board[i + 1][j] = this.board[i][j];
             this.board[i][j] = 0;
             return true;
