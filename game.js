@@ -117,37 +117,113 @@ class Game {
       for (let i = 1; i <= 20; i++) {
         for (let j = 0; j < this.board[i].length; j++) {
           if (
+            this.currentFigure === 1 &&
+            this.board[i][j] === this.currentFigure &&
+            (i >= 19 ||
+              this.board[i + 2][j] === 'x' ||
+              this.board[i + 2][j + 1] === 'x' ||
+              this.board[i + 2][j + 2] === 'x' ||
+              this.board[i + 2][j + 3] === 'x')
+          ) {
+            this.board[i + 1][j] = 'x';
+            this.board[i][j] = 0;
+            shapes.lToX(i, j);
+            this.randomShape();
+            return true;
+          }
+          if (
+            this.currentFigure === 2 &&
+            this.board[i][j] === this.currentFigure &&
+            (i >= 19 ||
+              this.board[i + 2][j] === 'x' ||
+              this.board[i + 2][j + 1] === 'x' ||
+              this.board[i + 2][j + 2] === 'x' ||
+              this.board[i + 2][j + 3] === 'x')
+          ) {
+            this.board[i + 1][j] = 'x';
+            this.board[i][j] = 0;
+            shapes.jToX(i, j);
+            this.randomShape();
+            return true;
+          }
+          if (
+            this.currentFigure === 3 &&
+            this.board[i][j] === this.currentFigure &&
+            (i >= 19 ||
+              this.board[i + 2][j] === 'x' ||
+              this.board[i + 2][j + 1] === 'x' ||
+              this.board[i + 2][j + 2] === 'x')
+          ) {
+            this.board[i + 1][j] = 'x';
+            this.board[i][j] = 0;
+            shapes.invTToX(i, j);
+            this.randomShape();
+            return true;
+          }
+          if (
+            this.currentFigure === 4 &&
+            this.board[i][j] === this.currentFigure &&
+            (i >= 19 ||
+              this.board[i + 2][j] === 'x' ||
+              this.board[i + 2][j + 1] === 'x' ||
+              this.board[i + 2][j + 2] === 'x' ||
+              this.board[i + 2][j + 3] === 'x')
+          ) {
+            this.board[i + 1][j] = 'x';
+            this.board[i][j] = 0;
+            shapes.hIToX(i, j);
+            this.randomShape();
+            return true;
+          }
+          if (
+            this.currentFigure === 5 &&
+            this.board[i][j] === this.currentFigure &&
+            (i >= 19 ||
+              this.board[i + 2][j] === 'x' ||
+              this.board[i + 2][j + 1] === 'x')
+          ) {
+            this.board[i + 1][j] = 'x';
+            this.board[i][j] = 0;
+            shapes.oToX(i, j);
+            this.randomShape();
+            return true;
+          }
+          if (
+            this.currentFigure === 6 &&
             this.board[i][j] === this.currentFigure &&
             (i >= 19 || this.board[i + 2][j] === 'x')
           ) {
-            /* ⬆This is a condition to turn to x when at the bottom */
             this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
-            if (this.currentFigure === 1) {
-              shapes.lToX(i, j);
-            }
-            if (this.currentFigure === 2) {
-              shapes.jToX(i, j);
-            }
-            if (this.currentFigure === 3) {
-              shapes.invTToX(i, j);
-            }
-            if (this.currentFigure === 4) {
-              shapes.hIToX(i, j);
-            }
-            if (this.currentFigure === 5) {
-              shapes.oToX(i, j);
-            }
-            if (this.currentFigure === 6) {
-              shapes.vIToX(i, j);
-            }
-            if (this.currentFigure === 7) {
-              shapes.sToX(i, j);
-            }
-            if (this.currentFigure === 8) {
-              shapes.zToX(i, j);
-            }
-            console.log(this.board);
+            shapes.vIToX(i, j);
+            this.randomShape();
+            return true;
+          }
+          if (
+            this.currentFigure === 7 &&
+            this.board[i][j] === this.currentFigure &&
+            (i >= 19 ||
+              this.board[i + 2][j] === 'x' ||
+              this.board[i + 2][j + 1] === 'x' ||
+              this.board[i + 1][j + 2] === 'x')
+          ) {
+            this.board[i + 1][j] = 'x';
+            this.board[i][j] = 0;
+            shapes.sToX(i, j);
+            this.randomShape();
+            return true;
+          }
+          if (
+            this.currentFigure === 8 &&
+            this.board[i][j] === this.currentFigure &&
+            (i >= 19 ||
+              this.board[i + 2][j] === 'x' ||
+              this.board[i + 2][j - 1] === 'x' ||
+              this.board[i + 1][j - 2] === 'x')
+          ) {
+            this.board[i + 1][j] = 'x';
+            this.board[i][j] = 0;
+            shapes.zToX(i, j);
             this.randomShape();
             return true;
           } else if (this.board[i][j] > 0) {
@@ -163,7 +239,7 @@ class Game {
     const randomFigure = Math.ceil(Math.random() * 8);
     const randomTile = Math.floor(Math.random() * (7 - 2) + 2);
     setTimeout(() => {
-      this.board['1'].splice(randomTile, 1, randomFigure);
+      this.board['1'].splice(randomTile, 1, 1);
     }, 700);
   }
 }
