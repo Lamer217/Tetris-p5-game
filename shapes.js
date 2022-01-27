@@ -367,4 +367,46 @@ class Shapes {
       );
     }
   }
+  lToX(row, index) {
+    game.board[row + 1][index + 1] = 'x';
+    game.board[row + 1][index + 2] = 'x';
+    game.board[row + 1][index + 3] = 'x';
+    game.board[row][index + 3] = 'x';
+  }
+  jToX(row, index) {
+    game.board[row][index] = 'x';
+    game.board[row + 1][index + 1] = 'x';
+    game.board[row + 1][index + 2] = 'x';
+    game.board[row + 1][index + 3] = 'x';
+  }
+  invTToX(row, index) {
+    game.board[row + 1][index + 1] = 'x';
+    game.board[row][index + 1] = 'x';
+    game.board[row + 1][index + 2] = 'x';
+  }
+  hIToX(row, index) {
+    game.board[row + 1][index + 1] = 'x';
+    game.board[row + 1][index + 2] = 'x';
+    game.board[row + 1][index + 3] = 'x';
+  }
+  oToX(row, index) {
+    game.board[row][index] = 'x';
+    game.board[row + 1][index + 1] = 'x';
+    game.board[row][index + 1] = 'x';
+  }
+  vIToX(row, index) {
+    game.board[row][index] = 'x';
+    game.board[row - 1][index] = 'x';
+    game.board[row - 2][index] = 'x';
+  }
+  sToX(row, index) {
+    game.board[row + 1][index + 1] = 'x';
+    game.board[row][index + 1] = 'x';
+    game.board[row][index + 2] = 'x';
+  }
+  zToX(row, index) {
+    game.board[row + 1][index - 1] = 'x';
+    game.board[row][index - 1] = 'x';
+    game.board[row][index - 2] = 'x';
+  }
 }

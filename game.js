@@ -4,7 +4,7 @@ class Game {
     this.currentFigure = 0;
     this.board = {
       1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      2: [0, , 0, 0, 0, 0, 0, 0, 0, 0],
+      2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       3: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       4: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       5: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -29,8 +29,8 @@ class Game {
   setup() {}
 
   preload() {
-    this.backgroundImage = loadImage("assets/Board/Board.png");
-    this.blockImage = loadImage("assets/Single Blocks/Blue.png");
+    this.backgroundImage = loadImage('assets/Board/Board.png');
+    this.blockImage = loadImage('assets/Single Blocks/Blue.png');
   }
 
   draw() {
@@ -109,8 +109,32 @@ class Game {
         for (let j = 0; j < this.board[i].length; j++) {
           if (this.board[i][j] > 0 && i >= 19) {
             /* ⬆This is a condition to turn to x when at the bottom */
-            this.board[i + 1][j] = "x";
+            this.board[i + 1][j] = 'x';
             this.board[i][j] = 0;
+            if (this.currentFigure === 1) {
+              shapes.lToX(i, j);
+            }
+            if (this.currentFigure === 2) {
+              shapes.jToX(i, j);
+            }
+            if (this.currentFigure === 3) {
+              shapes.invTToX(i, j);
+            }
+            if (this.currentFigure === 4) {
+              shapes.hIToX(i, j);
+            }
+            if (this.currentFigure === 5) {
+              shapes.oToX(i, j);
+            }
+            if (this.currentFigure === 6) {
+              shapes.vIToX(i, j);
+            }
+            if (this.currentFigure === 7) {
+              shapes.sToX(i, j);
+            }
+            if (this.currentFigure === 8) {
+              shapes.zToX(i, j);
+            }
             console.log(this.board);
             return true;
           } else if (this.board[i][j] > 0) {
@@ -125,6 +149,6 @@ class Game {
   randomShape() {
     const randomFigure = Math.ceil(Math.random() * 8);
     const randomTile = Math.floor(Math.random() * (7 - 2) + 2);
-    this.board["1"].splice(randomTile, 1, randomFigure);
+    this.board['1'].splice(randomTile, 1, randomFigure);
   }
 }
