@@ -145,6 +145,7 @@ class Game {
               shapes.zToX(i, j);
             }
             console.log(this.board);
+            this.randomShape();
             return true;
           } else if (this.board[i][j] > 0) {
             this.board[i + 1][j] = this.board[i][j];
@@ -158,6 +159,8 @@ class Game {
   randomShape() {
     const randomFigure = Math.ceil(Math.random() * 8);
     const randomTile = Math.floor(Math.random() * (7 - 2) + 2);
-    this.board['1'].splice(randomTile, 1, randomFigure);
+    setTimeout(() => {
+      this.board['1'].splice(randomTile, 1, randomFigure);
+    }, 700);
   }
 }

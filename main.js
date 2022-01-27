@@ -52,6 +52,7 @@ setInterval(() => {
           shapes.zToX(i, j);
         }
         console.log(game.board);
+        game.randomShape();
         return true;
       } else if (game.board[i][j] > 0) {
         game.board[i + 1][j] = game.board[i][j];
