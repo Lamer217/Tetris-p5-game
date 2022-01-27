@@ -101,11 +101,11 @@ class Game {
   }
   moveLeft() {
     if (keyCode === LEFT_ARROW) {
-      for (const row in this.board) {
-        for (let i = 0; i < this.board[row].length; i++) {
-          if (this.board[row][i] > 0 && i - 1 > -1) {
-            this.board[row][i - 1] = this.board[row][i];
-            this.board[row][i] = 0;
+      for (let i = 1; i <= 20; i++) {
+        for (let j = 0; j < this.board[i].length; j++) {
+          if (this.board[i][j] > 0 && j - 1 > -1) {
+            this.board[i][j - 1] = this.board[i][j];
+            this.board[i][j] = 0;
             return true;
           }
         }
