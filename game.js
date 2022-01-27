@@ -239,7 +239,7 @@ class Game {
     const randomFigure = Math.ceil(Math.random() * 8);
     const randomTile = Math.floor(Math.random() * (7 - 2) + 2);
     setTimeout(() => {
-      this.board['1'].splice(randomTile, 1, 1);
-    }, 700);
+      this.board['1'].splice(randomTile, 1, randomFigure);
+    }, 600);
   }
 }
