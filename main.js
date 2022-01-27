@@ -20,14 +20,13 @@ function keyPressed() {
 }
 
 game.randomShape();
-setInterval(() => {
+/* setInterval(() => {
   for (let i = 1; i <= 20; i++) {
     for (let j = 0; j < game.board[i].length; j++) {
       if (
-        (game.board[i][j] > 0 && i >= 19) ||
-        (game.board[i][j] > 0 && game.board[i + 2][j] === 'x')
-      ) {
-        /* ⬆This is a condition to turn to x when at the bottom */
+            game.board[i][j] === game.currentFigure &&
+            (i >= 19 || game.board[i + 2][j] === 'x')
+          ) {
         game.board[i + 1][j] = 'x';
         game.board[i][j] = 0;
         if (game.currentFigure === 1) {
@@ -65,3 +64,4 @@ setInterval(() => {
     }
   }
 }, 1500);
+ */
