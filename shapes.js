@@ -51,28 +51,28 @@ class Shapes {
   }
   renderJ(index, row) {
     image(
-      game.blockImage,
+      game.greenBlock,
       (index + 1) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.greenBlock,
       (index + 2) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.greenBlock,
       (index + 3) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.greenBlock,
       (index + 4) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -80,7 +80,7 @@ class Shapes {
     );
     if ((parseInt(row) - 1) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.greenBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
@@ -88,7 +88,7 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.greenBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
@@ -98,21 +98,21 @@ class Shapes {
   }
   renderInvT(index, row) {
     image(
-      game.blockImage,
+      game.yellowBlock,
       (index + 1) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.yellowBlock,
       (index + 2) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.yellowBlock,
       (index + 3) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -120,7 +120,7 @@ class Shapes {
     );
     if ((parseInt(row) - 1) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.yellowBlock,
         (index + 2) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
@@ -128,7 +128,7 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.yellowBlock,
         (index + 2) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
@@ -138,28 +138,28 @@ class Shapes {
   }
   renderHI(index, row) {
     image(
-      game.blockImage,
+      game.lBlueBlock,
       (index + 1) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.lBlueBlock,
       (index + 2) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.lBlueBlock,
       (index + 3) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.lBlueBlock,
       (index + 4) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -168,7 +168,7 @@ class Shapes {
   }
   renderO(index, row) {
     image(
-      game.blockImage,
+      game.orangeBlock,
       (index + 1) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -176,14 +176,14 @@ class Shapes {
     );
     if ((parseInt(row) - 1) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.orangeBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
         -1
       );
       image(
-        game.blockImage,
+        game.orangeBlock,
         (index + 2) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
@@ -191,14 +191,14 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.orangeBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
         game.blockSide
       );
       image(
-        game.blockImage,
+        game.orangeBlock,
         (index + 2) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
@@ -206,7 +206,7 @@ class Shapes {
       );
     }
     image(
-      game.blockImage,
+      game.orangeBlock,
       (index + 2) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -215,7 +215,7 @@ class Shapes {
   }
   renderVI(index, row) {
     image(
-      game.blockImage,
+      game.lBlueBlock,
       (index + 1) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -223,7 +223,7 @@ class Shapes {
     );
     if ((parseInt(row) - 1) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.lBlueBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
@@ -231,7 +231,7 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.lBlueBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
@@ -240,7 +240,7 @@ class Shapes {
     }
     if ((parseInt(row) - 2) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.lBlueBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 2) * game.blockSide,
         -1,
@@ -248,7 +248,7 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.lBlueBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 2) * game.blockSide,
         game.blockSide,
@@ -257,7 +257,7 @@ class Shapes {
     }
     if ((parseInt(row) - 3) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.lBlueBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 3) * game.blockSide,
         -1,
@@ -265,7 +265,7 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.lBlueBlock,
         (index + 1) * game.blockSide,
         (parseInt(row) - 3) * game.blockSide,
         game.blockSide,
@@ -275,14 +275,14 @@ class Shapes {
   }
   renderS(index, row) {
     image(
-      game.blockImage,
+      game.redBlock,
       (index + 1) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.redBlock,
       (index + 2) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -290,14 +290,14 @@ class Shapes {
     );
     if ((parseInt(row) - 1) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.redBlock,
         (index + 2) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
         -1
       );
       image(
-        game.blockImage,
+        game.redBlock,
         (index + 3) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
@@ -305,14 +305,14 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.redBlock,
         (index + 2) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
         game.blockSide
       );
       image(
-        game.blockImage,
+        game.redBlock,
         (index + 3) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
@@ -322,14 +322,14 @@ class Shapes {
   }
   renderZ(index, row) {
     image(
-      game.blockImage,
+      game.redBlock,
       (index + 1) * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
       game.blockSide
     );
     image(
-      game.blockImage,
+      game.redBlock,
       index * game.blockSide,
       parseInt(row) * game.blockSide,
       game.blockSide,
@@ -337,14 +337,14 @@ class Shapes {
     );
     if ((parseInt(row) - 1) * game.blockSide < game.blockSide) {
       image(
-        game.blockImage,
+        game.redBlock,
         index * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
         -1
       );
       image(
-        game.blockImage,
+        game.redBlock,
         (index - 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         -1,
@@ -352,14 +352,14 @@ class Shapes {
       );
     } else {
       image(
-        game.blockImage,
+        game.redBlock,
         index * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,
         game.blockSide
       );
       image(
-        game.blockImage,
+        game.redBlock,
         (index - 1) * game.blockSide,
         (parseInt(row) - 1) * game.blockSide,
         game.blockSide,

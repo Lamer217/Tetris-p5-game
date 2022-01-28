@@ -34,6 +34,12 @@ class Game {
   preload() {
     this.backgroundImage = loadImage('assets/Board/Board.png');
     this.blockImage = loadImage('assets/Single Blocks/Blue.png');
+    this.purpBlock = loadImage('assets/Single Blocks/Purple.png');
+    this.greenBlock = loadImage('assets/Single Blocks/Green.png');
+    this.lBlueBlock = loadImage('assets/Single Blocks/LightBlue.png');
+    this.yellowBlock = loadImage('assets/Single Blocks/Yellow.png');
+    this.orangeBlock = loadImage('assets/Single Blocks/Orange.png');
+    this.redBlock = loadImage('assets/Single Blocks/Red.png');
   }
 
   draw() {
@@ -78,7 +84,7 @@ class Game {
         }
         if (cell === 'x') {
           image(
-            this.blockImage,
+            this.purpBlock,
             (index + 1) * this.blockSide,
             parseInt(row) * game.blockSide,
             game.blockSide,
