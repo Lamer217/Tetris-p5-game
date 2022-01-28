@@ -354,6 +354,7 @@ class Game {
     }
   }
   randomShape() {
+    this.isGameOver();
     const randomFigure = Math.ceil(Math.random() * 8);
     const randomTile = Math.floor(Math.random() * (7 - 2) + 2);
     setTimeout(() => {
@@ -375,6 +376,11 @@ class Game {
         }
         this.board['1'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       }
+    }
+  }
+  isGameOver() {
+    if (this.board['1'].includes('x')) {
+      alert('Game over!');
     }
   }
 }
