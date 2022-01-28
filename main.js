@@ -1,5 +1,6 @@
 const game = new Game();
 const shapes = new Shapes();
+const scoreSpan = document.querySelector('h2>span');
 
 function preload() {
   game.preload();
@@ -21,6 +22,7 @@ function keyPressed() {
 
 game.randomShape();
 setInterval(() => {
+  scoreSpan.innerText = game.score;
   for (let i = 1; i <= 20; i++) {
     for (let j = 0; j < game.board[i].length; j++) {
       if (

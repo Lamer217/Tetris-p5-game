@@ -2,6 +2,7 @@ class Game {
   constructor() {
     this.blockSide = 33.4;
     this.currentFigure = 0;
+    this.score = 0;
     this.board = {
       1: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -360,14 +361,14 @@ class Game {
     setTimeout(() => {
       this.board['1'].splice(randomTile, 1, randomFigure);
     }, 600);
-  }
-  /* rowIsComplete() {
-    for (let i = 1; i <= 20; i++) {
-      if (this.board[i].every((cell) => cell === 'x')) {
-        return true;
-      }
+    if (randomFigure === 4 || randomFigure === 6) {
+      this.score += 10;
+    } else if (randomFigure === 5) {
+      this.score += 20;
+    } else {
+      this.score += 30;
     }
-  } */
+  }
   removeRow() {
     for (let i = 1; i <= 20; i++) {
       if (this.board[i].every((cell) => cell === 'x')) {
@@ -380,7 +381,7 @@ class Game {
   }
   isGameOver() {
     if (this.board['1'].includes('x')) {
-      alert('Game over!');
+      alert(`Game over! Your score is ${this.score}`);
     }
   }
 }
